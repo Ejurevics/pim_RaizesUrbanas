@@ -2,13 +2,16 @@
 
 public class Main {
     public static void main(String[] args) {
-
-
-        System.out.println("Hello and welcome!");
-
-        for (int i = 1; i <= 5; i++) {
-
-            System.out.println("i = " + i);
-        }
+        Contato contato1 = new Contato();
+        mostrarNome(contato1.nomeContato);
     }
+
+    public static void mostrarNome(String nomeContato){
+        System.out.println(nomeContato);
+    }
+
+    static class Contato{
+        String nomeContato = "enzo";
+    }
+
 }
