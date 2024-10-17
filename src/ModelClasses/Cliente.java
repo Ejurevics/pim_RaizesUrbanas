@@ -1,10 +1,15 @@
 package ModelClasses;
 
-public class Cliente {
-   String nome = "Enzo";
+import java.util.ArrayList;
 
-    public void mostraNome(){
-        System.out.println("Nome é: "+nome);
-    }
+public class Cliente {
+    private int id;
+    private String nome;
+    private String email;
+    private String senha;
+    private String telefone;
+    private ArrayList<Endereco> enderecos;
+
+
 }
 
