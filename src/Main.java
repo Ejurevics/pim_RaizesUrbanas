@@ -7,7 +7,7 @@ public class Main {
     }
 
     public static void mostrarNome(String nomeContato){
-        System.out.println(nomeContato);
+        System.out.println("Olá! Meu nome é: "+nomeContato);
     }
 
     static class Contato{
