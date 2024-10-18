@@ -8,7 +8,7 @@ public class Pagamento {
     private Pedido pedido;
     private BigDecimal valorPago;
     private String tipePagamente;
-    private String status;
+    private Status statusPagamento;
     private LocalDateTime dataPagamento;
 
 }

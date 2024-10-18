@@ -12,6 +12,6 @@ public class Pedido {
     private BigDecimal valorTotal;
     private BigDecimal frete;
     private LocalDateTime dataPedido;
-    private String status;
+    private Status statusPedido;
 
 }
