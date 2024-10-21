@@ -1,6 +1,7 @@
 import ModelClasses.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
@@ -24,11 +25,22 @@ public class Main {
         itemCarrinho.setQuantidade(2);
         itemCarrinho.setPrecoUnitario(produto.getPreco());
 
-        CarrinhoDeCompras carrinho = new CarrinhoDeCompras();
+        /*CarrinhoDeCompras carrinho = new CarrinhoDeCompras();
         carrinho.setId(1);
         carrinho.setItens(List.of(itemCarrinho));
-        carrinho.setValorTotal(itemCarrinho.getPrecoUnitario().multiply(new BigDecimal(itemCarrinho.getQuantidade())));
+        carrinho.setValorTotal(itemCarrinho.getPrecoUnitario().multiply(new BigDecimal(itemCarrinho.getQuantidade())));*/
 
+        CarrinhoDeCompras carrinho = new CarrinhoDeCompras();
+        carrinho.setId(1);
+        List<ItemCarrinho> itens = new ArrayList<>();
+        itens.add(itemCarrinho);
+        carrinho.setItens(itens);
+
+        BigDecimal valorTotal = BigDecimal.ZERO;
+        for (ItemCarrinho item : itens) {
+            valorTotal = valorTotal.add(item.getPrecoUnitario().multiply(new BigDecimal(item.getQuantidade())));
+        }
+        carrinho.setValorTotal(valorTotal);
 
         Pedido pedido = new Pedido(
                 1,
