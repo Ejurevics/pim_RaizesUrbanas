@@ -10,16 +10,13 @@ public class AutenticacaoController {
         this.autenticacaoService = autenticacaoService;
     }
 
-
     public Cliente loginCliente(String email, String senha) {
         return autenticacaoService.loginCliente(email, senha);
     }
 
-
     public void cadastrarCliente(Cliente cliente) {
         autenticacaoService.cadastrarCliente(cliente);
     }
-
 
     public void logout() {
         autenticacaoService.logout();
