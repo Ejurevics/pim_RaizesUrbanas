@@ -15,7 +15,7 @@ public class Main {
         produto.setQuantidadeEmEstoque(100);
 
         Cliente cliente = new Cliente();
-        cliente.setId(1);
+        //cliente.setId(1);
         cliente.setNome("Enzo");
         cliente.setEmail("enzojurevics@gmail.com");
         cliente.setTelefone("(11)99518-6046");
@@ -54,7 +54,8 @@ public class Main {
         );
 
         System.out.println("Informações do Pedido:");
-        System.out.println("ID: " + pedido.getId());
+        //System.out.println("ID: " + pedido.getId());
+        System.out.println("ID: " + cliente.getId());
         System.out.println("Cliente: " + cliente.getNome());
         System.out.println("Valor Total: R$ " + pedido.getValorTotal().setScale(2, BigDecimal.ROUND_HALF_UP));
         System.out.println("Status: " + pedido.getStatusPedido().getDescricao());

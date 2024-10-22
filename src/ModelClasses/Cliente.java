@@ -3,6 +3,7 @@ package ModelClasses;
 import java.util.List;
 
 public class Cliente {
+    private static int contadorId = 0;
     private int id;
     private String nome;
     private String email;
@@ -10,6 +11,11 @@ public class Cliente {
     private String telefone;
     private List<Endereco> enderecos;
 
+    public Cliente(){
+        this.id = ++id;
+        this.nome = nome;
+
+    }
     // Getters e Setters
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
