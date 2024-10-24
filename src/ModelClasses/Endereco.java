@@ -1,5 +1,7 @@
 package ModelClasses;
 
+import java.util.Scanner;
+
 public class Endereco {
     private int id;
     private String rua;
@@ -9,6 +11,8 @@ public class Endereco {
     private String cidade;
     private String estado;
     private String cep;
+
+    Scanner scanner = new Scanner(System.in);
 
     // Getters e Setters
     public int getId() { return id; }
@@ -35,6 +39,20 @@ public class Endereco {
     public String getComplemento() { return complemento; }
     public void setComplemento(String complemento) { this.complemento = complemento; }
 
+    public void inserirEnd(){
+        Endereco endCliente1 = new Endereco();
+        System.out.println("-> Digite o endereço de entrega <-");
+        System.out.print("CEP: ");
+        endCliente1.setCep(scanner.nextLine());
+        System.out.print("Rua: ");
+        endCliente1.setRua(scanner.nextLine());
+        System.out.print("Número: ");
+        endCliente1.setNumero(scanner.nextLine());
+        System.out.print("Complemento: ");
+        endCliente1.setComplemento(scanner.nextLine());
+        System.out.printf("");
+    }
+
     public void imprimirEndereco(){
         System.out.println("");
         System.out.println("===== Endereço de entrega =====");
@@ -44,5 +62,6 @@ public class Endereco {
         System.out.println("Complemento: " + getComplemento());
 
     }
+
 }
 

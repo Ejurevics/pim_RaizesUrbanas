@@ -16,22 +16,26 @@ public class Main {
         produto.setPreco(new BigDecimal("29.99"));
         produto.setQuantidadeEmEstoque(100);
 
+
         Cliente cliente1 = new Cliente();
-        //cliente.setId(1);
+        /*cliente.setId(1);
         cliente1.setNome("Enzo");
         cliente1.setEmail("enzojurevics@gmail.com");
         cliente1.setTelefone("(11)99518-6046");
-        //cliente1.setEnderecos();
+        cliente1.setEnderecos();*/
+
 
         ItemCarrinho itemCarrinho = new ItemCarrinho();
         itemCarrinho.setProduto(produto);
         itemCarrinho.setQuantidade(2);
         itemCarrinho.setPrecoUnitario(produto.getPreco());
 
+
         /*CarrinhoDeCompras carrinho = new CarrinhoDeCompras();
         carrinho.setId(1);
         carrinho.setItens(List.of(itemCarrinho));
         carrinho.setValorTotal(itemCarrinho.getPrecoUnitario().multiply(new BigDecimal(itemCarrinho.getQuantidade())));*/
+
 
         CarrinhoDeCompras carrinho = new CarrinhoDeCompras();
         carrinho.setId(1);
@@ -39,11 +43,13 @@ public class Main {
         itens.add(itemCarrinho);
         carrinho.setItens(itens);
 
+
         BigDecimal valorTotal = BigDecimal.ZERO;
         for (ItemCarrinho item : itens) {
             valorTotal = valorTotal.add(item.getPrecoUnitario().multiply(new BigDecimal(item.getQuantidade())));
         }
         carrinho.setValorTotal(valorTotal);
+
 
         Pedido pedido = new Pedido(
                 1,
@@ -56,19 +62,9 @@ public class Main {
                 new Status("Pendente")
         );
 
-        Endereco endCliente1 = new Endereco();
-        System.out.println("-> Digite o endereço de entrega <-");
-        System.out.print("CEP: ");
-        endCliente1.setCep(scanner.nextLine());
-        System.out.print("Rua: ");
-        endCliente1.setRua(scanner.nextLine());
-        System.out.print("Número: ");
-        endCliente1.setNumero(scanner.nextLine());
-        System.out.print("Complemento: ");
-        endCliente1.setComplemento(scanner.nextLine());
-        System.out.printf("");
+
+        cliente1.inserirCliente();
         cliente1.imprimirCliente();
-        endCliente1.imprimirEndereco();
         //System.out.println("ID: " + pedido.getId());
         //System.out.println("ID: " + cliente.getId());
         //System.out.println("Cliente: " + cliente1.getNome());
@@ -76,5 +72,7 @@ public class Main {
         System.out.println("==== Pedido ====");
         System.out.println("Valor Total: R$ " + pedido.getValorTotal().setScale(2, BigDecimal.ROUND_HALF_UP));
         System.out.println("Status: " + pedido.getStatusPedido().getDescricao());
+
+
     }
 }
