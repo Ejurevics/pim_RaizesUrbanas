@@ -1,3 +1,4 @@
+import DaoClasses.ClienteDAO;
 import ModelClasses.*;
 import ServicesClasses.UsuarioService;
 
@@ -45,6 +46,6 @@ public class Main {
         System.out.println("Valor Total: R$ " + pedido.getValorTotal().setScale(2, java.math.RoundingMode.HALF_UP));
         System.out.println("Status: " + pedido.getStatusPedido().getDescricao());
 
-
+        ClienteDAO.inserirCliente(cliente1);
     }
 }

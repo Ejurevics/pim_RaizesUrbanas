@@ -3,12 +3,12 @@ package ModelClasses;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-@JsonIgnoreProperties(ignoreUnknown = true) // Ignora campos JSON não mapeados
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Endereco {
 
     private int id;
 
-    @JsonProperty("logradouro") // Mapeia "logradouro" para "rua"
+    @JsonProperty("logradouro")
     private String rua;
 
     private String numero;
@@ -16,13 +16,13 @@ public class Endereco {
 
     private String bairro;
 
-    @JsonProperty("localidade") // Mapeia "localidade" para "cidade"
+    @JsonProperty("localidade")
     private String cidade;
 
-    @JsonProperty("uf") // Mapeia "uf" para "estado"
+    @JsonProperty("uf")
     private String estado;
 
-    @JsonProperty("cep") // Mapeia "cep" corretamente
+    @JsonProperty("cep")
     private String cep;
 
     // Getters e Setters

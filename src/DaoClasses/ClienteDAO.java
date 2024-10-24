@@ -8,13 +8,13 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class ClienteDAO {
-    private String url = "jdbc:sqlserver://<hostname>:<port>;databaseName=<database_name>;integratedSecurity=true;";
+    private static String connectionString = "jdbc:sqlserver://<hostname>:<port>;databaseName=<database_name>;integratedSecurity=true;"; //atualizar conexao
 
     // Método para inserir cliente no banco de dados
-    public void inserirCliente(Cliente cliente) {
+    public static void inserirCliente(Cliente cliente) {
         String sql = "INSERT INTO Cliente (Nome, Login, Email, Senha, Telefone, Rua, Bairro, Cidade, Estado, Cep, Numero, Complemento) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
-        try (Connection conn = DriverManager.getConnection(url);
+        try (Connection conn = DriverManager.getConnection(connectionString);
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
             pstmt.setString(1, cliente.getNome());
@@ -30,7 +30,7 @@ public class ClienteDAO {
             pstmt.setString(11, cliente.getEndereco().getNumero());
             pstmt.setString(12, cliente.getEndereco().getComplemento());
 
-            pstmt.executeUpdate();
+            pstmt.executeQuery();//.executeUpdate();
             System.out.println("Cliente inserido com sucesso!");
 
         } catch (SQLException e) {
