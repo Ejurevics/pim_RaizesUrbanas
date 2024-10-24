@@ -3,9 +3,11 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
 
         Produto produto = new Produto();
         produto.setId(1);
@@ -14,11 +16,12 @@ public class Main {
         produto.setPreco(new BigDecimal("29.99"));
         produto.setQuantidadeEmEstoque(100);
 
-        Cliente cliente = new Cliente();
+        Cliente cliente1 = new Cliente();
         //cliente.setId(1);
-        cliente.setNome("Enzo");
-        cliente.setEmail("enzojurevics@gmail.com");
-        cliente.setTelefone("(11)99518-6046");
+        cliente1.setNome("Enzo");
+        cliente1.setEmail("enzojurevics@gmail.com");
+        cliente1.setTelefone("(11)99518-6046");
+        //cliente1.setEnderecos();
 
         ItemCarrinho itemCarrinho = new ItemCarrinho();
         itemCarrinho.setProduto(produto);
@@ -44,7 +47,7 @@ public class Main {
 
         Pedido pedido = new Pedido(
                 1,
-                cliente,
+                cliente1,
                 List.of(itemCarrinho),
                 null,
                 carrinho.getValorTotal(),
@@ -53,10 +56,24 @@ public class Main {
                 new Status("Pendente")
         );
 
-        System.out.println("Informações do Pedido:");
+        Endereco endCliente1 = new Endereco();
+        System.out.println("-> Digite o endereço de entrega <-");
+        System.out.print("CEP: ");
+        endCliente1.setCep(scanner.nextLine());
+        System.out.print("Rua: ");
+        endCliente1.setRua(scanner.nextLine());
+        System.out.print("Número: ");
+        endCliente1.setNumero(scanner.nextLine());
+        System.out.print("Complemento: ");
+        endCliente1.setComplemento(scanner.nextLine());
+        System.out.printf("");
+        cliente1.imprimirCliente();
+        endCliente1.imprimirEndereco();
         //System.out.println("ID: " + pedido.getId());
-        System.out.println("ID: " + cliente.getId());
-        System.out.println("Cliente: " + cliente.getNome());
+        //System.out.println("ID: " + cliente.getId());
+        //System.out.println("Cliente: " + cliente1.getNome());
+        System.out.println("");
+        System.out.println("==== Pedido ====");
         System.out.println("Valor Total: R$ " + pedido.getValorTotal().setScale(2, BigDecimal.ROUND_HALF_UP));
         System.out.println("Status: " + pedido.getStatusPedido().getDescricao());
     }

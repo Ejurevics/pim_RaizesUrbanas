@@ -4,6 +4,7 @@ public class Endereco {
     private int id;
     private String rua;
     private String numero;
+    private String complemento;
     private String bairro;
     private String cidade;
     private String estado;
@@ -30,5 +31,18 @@ public class Endereco {
 
     public String getCep() { return cep; }
     public void setCep(String cep) { this.cep = cep; }
+
+    public String getComplemento() { return complemento; }
+    public void setComplemento(String complemento) { this.complemento = complemento; }
+
+    public void imprimirEndereco(){
+        System.out.println("");
+        System.out.println("===== Endereço de entrega =====");
+        System.out.println("CEP: " + getCep());
+        System.out.println("Rua: " + getRua());
+        System.out.println("Número: " + getNumero());
+        System.out.println("Complemento: " + getComplemento());
+
+    }
 }
 

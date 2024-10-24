@@ -11,11 +11,6 @@ public class Cliente {
     private String telefone;
     private List<Endereco> enderecos;
 
-    public Cliente(){
-        this.id = ++id;
-        this.nome = nome;
-
-    }
     // Getters e Setters
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
@@ -34,6 +29,16 @@ public class Cliente {
 
     public List<Endereco> getEnderecos() { return enderecos; }
     public void setEnderecos(List<Endereco> enderecos) { this.enderecos = enderecos; }
+
+    public void imprimirCliente(){
+        System.out.println("");
+        System.out.println("===== Informções do Cliente =====");
+        System.out.println("Nome: " + getNome());
+        System.out.println("Email: " + getEmail());
+        System.out.println("Telefone: " + getTelefone());
+        //System.out.println("Endereço de entrega: " + getEnderecos());
+    }
+
 }
 
 
