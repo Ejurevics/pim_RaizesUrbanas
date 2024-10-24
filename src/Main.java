@@ -7,6 +7,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        //master
         Scanner scanner = new Scanner(System.in);
 
         Produto produto = new Produto();
