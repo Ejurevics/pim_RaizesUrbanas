@@ -40,7 +40,7 @@ public class Main {
         );
 
         usuarioService.imprimirCliente(cliente1);
-        System.out.println("");
+        System.out.println(" ");
         System.out.println("==== Pedido ====");
         System.out.println("Valor Total: R$ " + pedido.getValorTotal().setScale(2, java.math.RoundingMode.HALF_UP));
         System.out.println("Status: " + pedido.getStatusPedido().getDescricao());
