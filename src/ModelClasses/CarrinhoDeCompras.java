@@ -6,13 +6,13 @@ import java.util.List;
 
 public class CarrinhoDeCompras {
     private int id;
-    private List<ItemCarrinho> itens; // Lista de itens no carrinho
-    private BigDecimal valorTotal; // Valor total do carrinho
+    private List<ItemCarrinho> itens;
+    private BigDecimal valorTotal;
 
     // Construtor
     public CarrinhoDeCompras() {
-        this.itens = new ArrayList<>(); // Inicializa a lista de itens
-        this.valorTotal = BigDecimal.ZERO; // Inicializa o valor total como zero
+        this.itens = new ArrayList<>();
+        this.valorTotal = BigDecimal.ZERO;
     }
 
     // Getters e Setters

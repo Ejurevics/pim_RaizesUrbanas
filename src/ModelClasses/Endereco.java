@@ -1,18 +1,29 @@
 package ModelClasses;
 
-import java.util.Scanner;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
+@JsonIgnoreProperties(ignoreUnknown = true) // Ignora campos JSON não mapeados
 public class Endereco {
+
     private int id;
+
+    @JsonProperty("logradouro") // Mapeia "logradouro" para "rua"
     private String rua;
+
     private String numero;
     private String complemento;
-    private String bairro;
-    private String cidade;
-    private String estado;
-    private String cep;
 
-    Scanner scanner = new Scanner(System.in);
+    private String bairro;
+
+    @JsonProperty("localidade") // Mapeia "localidade" para "cidade"
+    private String cidade;
+
+    @JsonProperty("uf") // Mapeia "uf" para "estado"
+    private String estado;
+
+    @JsonProperty("cep") // Mapeia "cep" corretamente
+    private String cep;
 
     // Getters e Setters
     public int getId() { return id; }
@@ -38,30 +49,4 @@ public class Endereco {
 
     public String getComplemento() { return complemento; }
     public void setComplemento(String complemento) { this.complemento = complemento; }
-
-    public void inserirEnd(){
-        Endereco endCliente1 = new Endereco();
-        System.out.println("-> Digite o endereço de entrega <-");
-        System.out.print("CEP: ");
-        endCliente1.setCep(scanner.nextLine());
-        System.out.print("Rua: ");
-        endCliente1.setRua(scanner.nextLine());
-        System.out.print("Número: ");
-        endCliente1.setNumero(scanner.nextLine());
-        System.out.print("Complemento: ");
-        endCliente1.setComplemento(scanner.nextLine());
-        System.out.printf("");
-    }
-
-    public void imprimirEndereco(){
-        System.out.println("");
-        System.out.println("===== Endereço de entrega =====");
-        System.out.println("CEP: " + getCep());
-        System.out.println("Rua: " + getRua());
-        System.out.println("Número: " + getNumero());
-        System.out.println("Complemento: " + getComplemento());
-
-    }
-
 }
-
