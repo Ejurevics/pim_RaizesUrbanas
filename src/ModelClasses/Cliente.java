@@ -36,7 +36,7 @@ public class Cliente {
         System.out.println("Nome: " + getNome());
         System.out.println("Email: " + getEmail());
         System.out.println("Telefone: " + getTelefone());
-        //System.out.println("Endereço de entrega: " + getEnderecos()); teste
+        //System.out.println("Endereço de entrega: " + getEnderecos()); teste2
     }
 
 }
